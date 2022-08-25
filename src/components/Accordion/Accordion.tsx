@@ -2,13 +2,15 @@ import React from "react";
 
 type AccordionPropsType = {
     titleValue: string
-    collapsed: boolean
+    collapsed: boolean//  collapsed? передачи props может не быть
 }
-export function Accordion(props: AccordionPropsType) {
+/*export function Accordion(props: AccordionPropsType) {
     console.log('Accordion rendering')
-    if (props.collapsed === true)
+
+    if (props.collapsed)
     return (
         <div>
+            {/!*onFocus*!/}
             <AccordionTitle title={props.titleValue}/>
         </div>
     )
@@ -18,7 +20,21 @@ export function Accordion(props: AccordionPropsType) {
             <AccordionBody/>
         </div>
     );
+}*/
+export function Accordion(props: AccordionPropsType) {
+    console.log('Accordion rendering')
+
+    return (
+        <div>
+            <AccordionTitle title={props.titleValue}/>
+            {!props.collapsed && <AccordionBody/>}
+            {/*{props.collapsed === false && <AccordionBody/>}*/}
+            {/*если не свернут, покажи AccordionBody*/}
+            {/*{props.collapsed === true && <AccordionBody/>} no menu */}
+        </div>
+    );
 }
+
 type AccordionTitlePropsType = {
     title: string
 }
