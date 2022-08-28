@@ -26,9 +26,12 @@ export function Accordion(props: AccordionPropsType) {
 
     return (
         <div>
+            {/*let a = true && false && true */}
+            {/*a = false первое фолс значение*/}
             <AccordionTitle title={props.titleValue}/>
-            {!props.collapsed && <AccordionBody/>}
-            {/*{props.collapsed === false && <AccordionBody/>}*/}
+            {props.collapsed === false && <AccordionBody/>}
+
+            {/*{!props.collapsed && <AccordionBody/>}*/}
             {/*если не свернут, покажи AccordionBody*/}
             {/*{props.collapsed === true && <AccordionBody/>} no menu */}
         </div>
