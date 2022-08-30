@@ -1,30 +1,55 @@
-import React from "react";
-import './OnOff.css';
+import React, {useState} from "react";
+// import './OnOff.css';
 
 type ValueType = {
-    myValue: boolean
+    // on: boolean
 }
 export const OnOff = (props: ValueType) => {
-if (props.myValue) {
-     return (  <div>
-            <span>
-                <button id={'button1'} className={'on'}>ON</button>
-                <button id={'button2'}>OFF</button>
-                <button id={'button3'} className={'on' + ' ' + 'radial'}>.</button>
-            </span>
-        </div>)
-} else  {
-    return (
-        <div>
+    console.log('OnOff rendering')
+    let [on, setOn] = useState(false)
 
-            <span>
-                <button id={'button1'}>ON</button>
-                <button id={'button2'} className={'off'}>OFF</button>
-                <button id={'button3'} className={'off' + ' ' + 'radial'}>.</button>
-            </span>
-        </div>
-    );
-}
+    console.log('on: ' + on)
+    const onStyle = {
+        width: '30px',
+        height: '20px',
+        border: '1px solid black',
+        padding: '2px',
+        display: 'inline-block',
+        // backgroundColor: props.on ? 'green' : 'white'
+        backgroundColor: on ? 'green' : 'white'
+    //    props.on===true
+    };
+    const offStyle = {
+        width: '30px',
+        height: '20px',
+        border: '1px solid black',
+        display: 'inline-block',
+        padding: '2px',
+        marginLeft: '5px',
+        // backgroundColor: props.on ? 'white' : 'red'
+        backgroundColor: on ? 'white' : 'red'
+    };
+    const  indicatorStyle = {
+        width: '10px',
+        height: '10px',
+        borderRadius: '15px',
+        border: '1px solid black',
+        display: 'inline-block',
+        padding: '2px',
+        marginLeft: '5px',
+        // backgroundColor: props.on ? 'green' : 'red'
+        backgroundColor: on ? 'green' : 'red'
+    }
+return (
 
+    <div>
+        <div style={onStyle} onClick={() => {setOn(true)}}>ON</div>
+        <div style={offStyle} onClick={() => {setOn(false)}}>OFF</div>
+        <div style={indicatorStyle}></div>
+    </div>
+)
 };
+
+
+
 
