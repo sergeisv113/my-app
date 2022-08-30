@@ -12,12 +12,8 @@ export function UnControlledAccordion(props: AccordionPropsType) {
     return (
         <div>
             <AccordionTitle title={props.titleValue}/>
-             <button onClick={() => {setCollapsed(true)}}>TOGGLE</button>
+             <button onClick={() => {setCollapsed(!collapsed)}}>TOGGLE</button>
             {!collapsed && <AccordionBody/>}
-
-            {/*{!props.collapsed && <AccordionBody/>}*/}
-            {/*если не свернут, покажи AccordionBody*/}
-            {/*{props.collapsed === true && <AccordionBody/>} no menu */}
         </div>
     );
 }
