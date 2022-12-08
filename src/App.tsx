@@ -1,39 +1,53 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import {Accordion} from "./components/Accordion/Accordion";
-import {Rating} from "./components/Rating/Rating";
+import {Rating, RatingValueType} from "./components/Rating/Rating";
 import {OnOff} from "./components/OnOff/OnOff";
 import {UnControlledAccordion} from "./components/UnControlledAccordion/UnControlledAccordion";
 import {UnControlledRating} from "./components/UnControlledRating/UnControlledRating";
+import {UnControlledOnOff} from "./components/UnControlledOnOff/UnControlledOnOff";
 
 
 //function declaration
 function App() {
-    //что то полезное
-
+let [ratingValue, setRatingValue] = useState<RatingValueType>(0)
+let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false)
+let [switchOn, setSwitchOn] = useState(false)
     //обязан вернуть JSX(html-подобный js)
     console.log('App rendering')
     return (
-        <div>
-            {/*<PageTitle title={"This is APP component"}/>
+        <div className={'App'}>
+            <PageTitle title={"This is APP component"}/>
             <PageTitle title={"My friends"}/>
+
             Article1
-            <Rating value={3}/>
-            <Accordion titleValue={"Menu"} collapsed={true}/>
-            <Accordion titleValue={"Users"} collapsed={false}/>
+            <UnControlledOnOff onChange={setSwitchOn}/> {switchOn.toString()}
+            <Rating value={ratingValue} onClick={setRatingValue}/>
+            {/*<Accordion titleValue={"Menu"} collapsed={true}/>*/}
+            <Accordion titleValue={"Menu"} collapsed={accordionCollapsed}onClick={() => {setAccordionCollapsed(!accordionCollapsed)}} />
+            <Accordion titleValue={"Users"}     collapsed={accordionCollapsed}
+             onClick={() => {setAccordionCollapsed(!accordionCollapsed)}}
+            />
             Article2
-            <Rating value={0}/>
+
+          {/*  <Rating value={0}/>
             <Rating value={1}/>
             <Rating value={2}/>
             <Rating value={3}/>
             <Rating value={4}/>
             <Rating value={5}/>*/}
-            {/*<OnOff on={true}/>*/}
-            <OnOff />
+
+            <OnOff on={switchOn} onChange={setSwitchOn}/>
+           {/* <OnOff on={switchOn} onChange={(on) => setSwitchOn(on)}/>*/}
+            {/*controlled element in props*/}
+            {/*<UnControlledOnOff />*/}
+
             <UnControlledAccordion titleValue={'Menu'}/>
             <UnControlledAccordion titleValue={'Users'}/>
-            <UnControlledRating/>
-            <UnControlledRating/>
+{/*
+            <UnControlledRating />
+            <UnControlledRating />
+*/}
         </div>
     );
 }
