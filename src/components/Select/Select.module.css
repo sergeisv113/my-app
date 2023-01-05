@@ -1,0 +1,26 @@
+.select .main{
+    border: 1px solid black;
+    display: inline-block;
+    min-height: 20px;
+    min-width: 60px;
+}
+/*
+ //скрываем через css
+.items {
+    border: 1px solid black;
+    position: absolute;
+    padding: 5px;
+    display: none;
+}
+.select.active .items {
+    display: block;
+}*/
+.items {
+    border: 1px solid black;
+    position: absolute;
+    padding: 5px;
+}
+.item.selected {
+    background-color: dodgerblue;
+    color: white;
+}

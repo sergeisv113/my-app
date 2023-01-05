@@ -4,17 +4,20 @@ import {Accordion} from "./components/Accordion/Accordion";
 import {Rating, RatingValueType} from "./components/Rating/Rating";
 import {OnOff} from "./components/OnOff/OnOff";
 import {UnControlledAccordion} from "./components/UnControlledAccordion/UnControlledAccordion";
-import {UnControlledRating} from "./components/UnControlledRating/UnControlledRating";
 import {UnControlledOnOff} from "./components/UnControlledOnOff/UnControlledOnOff";
+import SelectStories from "./components/Select/Select.stories";
+import {Select} from "./components/Select/Select";
 
 
 //function declaration
 function App() {
+
 let [ratingValue, setRatingValue] = useState<RatingValueType>(0)
 let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false)
 let [switchOn, setSwitchOn] = useState(false)
     //обязан вернуть JSX(html-подобный js)
     console.log('App rendering')
+
     return (
         <div className={'App'}>
             <PageTitle title={"This is APP component"}/>
@@ -24,10 +27,15 @@ let [switchOn, setSwitchOn] = useState(false)
             <UnControlledOnOff onChange={setSwitchOn}/> {switchOn.toString()}
             <Rating value={ratingValue} onClick={setRatingValue}/>
             {/*<Accordion titleValue={"Menu"} collapsed={true}/>*/}
-            <Accordion titleValue={"Menu"} collapsed={accordionCollapsed}onClick={() => {setAccordionCollapsed(!accordionCollapsed)}} />
-            <Accordion titleValue={"Users"}     collapsed={accordionCollapsed}
-             onClick={() => {setAccordionCollapsed(!accordionCollapsed)}}
+{/*            <Accordion titleValue={"Menu"}
+                       items={items}
+                       collapsed={accordionCollapsed}onChange={() => {setAccordionCollapsed(!accordionCollapsed)}}
             />
+            <Accordion titleValue={"Users"}
+                        items={items}
+                       collapsed={accordionCollapsed}
+             onChange={() => {setAccordionCollapsed(!accordionCollapsed)}}
+            />*/}
             Article2
 
           {/*  <Rating value={0}/>
@@ -48,6 +56,10 @@ let [switchOn, setSwitchOn] = useState(false)
             <UnControlledRating />
             <UnControlledRating />
 */}
+           {/* <Select value={}
+                    onChange={}
+                    items={}
+            />*/}
         </div>
     );
 }
