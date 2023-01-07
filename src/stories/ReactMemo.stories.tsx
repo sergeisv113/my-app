@@ -8,7 +8,7 @@ const NewMessagesCounter = (props: {count: number}) => {
   return <div>{props.count}</div>
 }
 // type UsersType = {users: Array<any>}
-const UsersSecret = (props: {users: Array<any>}) => {
+const UsersSecret = (props: {users: Array<string>}) => {
     console.log('USERS')
     return <div>
         {props.users.map((u,i) => <div key={i}>{u}</div>)}
