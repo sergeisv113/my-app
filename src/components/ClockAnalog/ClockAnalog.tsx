@@ -13,16 +13,20 @@ export function ClockAnalog ()  {
         const deg = 6;
 
        let interval =  setInterval(() => {
-           let day = new Date();
-           let hh = day.getHours() * 30;
-           let mm = day.getMinutes() * deg;
-           let ss = day.getSeconds() * deg;
+               let day = new Date();
+               let hh = day.getHours() * 30;
+               let mm = day.getMinutes() * deg;
+               let ss = day.getSeconds() * deg;
 
-           hr.style.transform = `rotateZ(${(hh) + (mm/12)}deg)`;
-           mn.style.transform = `rotateZ(${mm}deg)`;
-           sc.style.transform = `rotateZ(${ss}deg)`;
-           setDate(new Date)
-       }, 0)
+               // @ts-ignore
+               hr.style.transform = `rotateZ(${(hh) + (mm / 12)}deg)`;
+               // @ts-ignore
+               mn.style.transform = `rotateZ(${mm}deg)`;
+               // @ts-ignore
+               sc.style.transform = `rotateZ(${ss}deg)`;
+               setDate(new Date)
+           },
+           0)
 
         return () => {
            clearInterval(interval)
